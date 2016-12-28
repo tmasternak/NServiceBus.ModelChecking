@@ -1,8 +1,8 @@
 --------------------------- MODULE Recoverability ---------------------------
-EXTENDS Integers, FiniteSets
+EXTENDS Integers, FiniteSets, Sequences
 
-CONSTANTS M, \* Set of all possible messages *\
-          MaxAttempts 
+CONSTANTS M,            \* Set of all possible messages *\
+          MaxAttempts   \* Max number of processing attempts *\
 
 ASSUME /\ M \in Nat
        /\ MaxAttempts \in Nat
@@ -13,17 +13,22 @@ ASSUME /\ M \in Nat
 --fair algorithm ReceiveWithRetries {
     variables input = 1..M, errors = {}, effects = {}, input0 = input,
               attempts = [msg \in input |-> 0];
+              
+    macro Process (msg) { input := input \ {msg};
+                          effects := effects \cup {msg};
+                        }
+                          
+    macro HandleFailure (msg) { if   (attempts[msg] < MaxAttempts) 
+                                     { attempts := [attempts EXCEPT ![msg] = @ + 1]; } 
+                                else { input := input \ {msg};
+                                       errors := errors \cup {msg};
+                                }
+                              }
     {
         while (Cardinality(input) > 0)
         { with (msg \in input)
-          {     either  { input := input \ {msg};
-                          effects := effects \cup {msg}; }
-                or      { if   (attempts[msg] < MaxAttempts) 
-                               { attempts := [attempts EXCEPT ![msg] = @ + 1]; } 
-                          else { input := input \ {msg};
-                                 errors := errors \cup {msg};
-                               }
-                        }
+          {     either  { Process(msg); }
+                or      { HandleFailure(msg); }
           }
         }
     } 
@@ -80,5 +85,5 @@ MessageAttemptedNoMoreThanMax == (pc = "Done") => \A msg \in input0: attempts[ms
 
 =============================================================================
 \* Modification History
-\* Last modified Tue Dec 27 22:09:07 CET 2016 by Tomasz Masternak
+\* Last modified Wed Dec 28 13:19:25 CET 2016 by Tomasz Masternak
 \* Created Tue Dec 27 20:32:15 CET 2016 by Tomasz Masternak

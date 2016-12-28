@@ -4,21 +4,22 @@ In `NServiceBus` a message can be either sucessfully processed or moved to an er
 
 ### `TransportTransactionMode.TransactionScope`
 
-In`TransportTransactionMode.TransactionScope` the TLA+ model expresses following assumptions:
-
- * All queues participate in distributed transaction => A message can be atomically moved from `input` to `error` or `effects`. 
- * Retry counter is non-transactional. Receiver keeps in-memory retry counter for each message  
+The [NServiceBus]() recoverability sub-system has been modeled with following assumptions:
+  
+ * All side-effects can be modelled as queue operations. In particular business logic and persister side effects are modelled as single message sent to `Effects` queue.  
+ * Queues participate in distributed transaction. 
+ * RetryCounter is non-transactional and has a life-time of the `Receiver`.  
 
 
 ```
 
                                      +-------------+
-                                     |  errors     |
+                                     |  Errors     |
                                      +------^------+
     +-------+     +------------+            |
-    | input +---> | receiver   +------------+
+    | Input +---> |  Receiver  +------------+
     +-------+     +------------+            |
                                      +------v------+
-                                     |  effects    |
+                                     |  Effects    |
                                      +-------------+
  ```

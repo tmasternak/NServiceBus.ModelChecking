@@ -12,8 +12,8 @@ Parsing file Recoverability.tla
 Parsing file C:\projects\tla+\toolbox\plugins\org.lamport.tlatools_1.0.0.201512230951\tla2sany\StandardModules\TLC.tla
 Parsing file C:\projects\tla+\toolbox\plugins\org.lamport.tlatools_1.0.0.201512230951\tla2sany\StandardModules\Integers.tla
 Parsing file C:\projects\tla+\toolbox\plugins\org.lamport.tlatools_1.0.0.201512230951\tla2sany\StandardModules\FiniteSets.tla
-Parsing file C:\projects\tla+\toolbox\plugins\org.lamport.tlatools_1.0.0.201512230951\tla2sany\StandardModules\Naturals.tla
 Parsing file C:\projects\tla+\toolbox\plugins\org.lamport.tlatools_1.0.0.201512230951\tla2sany\StandardModules\Sequences.tla
+Parsing file C:\projects\tla+\toolbox\plugins\org.lamport.tlatools_1.0.0.201512230951\tla2sany\StandardModules\Naturals.tla
 Semantic processing of module Naturals
 Semantic processing of module Integers
 Semantic processing of module Sequences
@@ -25,7 +25,7 @@ Semantic processing of module MC
 SANY finished.
 @!@!@ENDMSG 2219 @!@!@
 @!@!@STARTMSG 2185:0 @!@!@
-Starting... (2016-12-27 22:09:32)
+Starting... (2016-12-28 13:19:44)
 @!@!@ENDMSG 2185 @!@!@
 @!@!@STARTMSG 2212:0 @!@!@
 Implied-temporal checking--satisfiability problem has 1 branches.
@@ -37,13 +37,13 @@ Computing initial states...
 Finished computing initial states: 1 distinct state generated.
 @!@!@ENDMSG 2190 @!@!@
 @!@!@STARTMSG 2200:0 @!@!@
-Progress(14) at 2016-12-27 22:09:33: 8745 states generated, 2657 distinct states found, 0 states left on queue.
+Progress(14) at 2016-12-28 13:19:45: 8745 states generated, 2657 distinct states found, 0 states left on queue.
 @!@!@ENDMSG 2200 @!@!@
 @!@!@STARTMSG 2192:0 @!@!@
-Checking temporal properties for the complete state space with 2657 total distinct states at (2016-12-27 22:09:33)
+Checking temporal properties for the complete state space with 2657 total distinct states at (2016-12-28 13:19:45)
 @!@!@ENDMSG 2192 @!@!@
 @!@!@STARTMSG 2267:0 @!@!@
-Finished checking temporal properties in 00s at 2016-12-27 22:09:33
+Finished checking temporal properties in 00s at 2016-12-28 13:19:45
 @!@!@ENDMSG 2267 @!@!@
 @!@!@STARTMSG 2193:0 @!@!@
 Model checking completed. No error has been found.
@@ -53,85 +53,85 @@ Model checking completed. No error has been found.
   based on the actual fingerprints:  val = 3.5E-13
 @!@!@ENDMSG 2193 @!@!@
 @!@!@STARTMSG 2201:0 @!@!@
-The coverage statistics at 2016-12-27 22:09:33
+The coverage statistics at 2016-12-28 13:19:45
 @!@!@ENDMSG 2201 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 36, col 12 to line 36, col 16 of module Recoverability: 256
+  line 41, col 12 to line 41, col 16 of module Recoverability: 256
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 36, col 19 to line 36, col 24 of module Recoverability: 256
+  line 41, col 19 to line 41, col 24 of module Recoverability: 256
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 36, col 27 to line 36, col 33 of module Recoverability: 256
+  line 41, col 27 to line 41, col 33 of module Recoverability: 256
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 36, col 36 to line 36, col 41 of module Recoverability: 256
+  line 41, col 36 to line 41, col 41 of module Recoverability: 256
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 36, col 44 to line 36, col 51 of module Recoverability: 256
+  line 41, col 44 to line 41, col 51 of module Recoverability: 256
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 36, col 54 to line 36, col 55 of module Recoverability: 256
+  line 41, col 54 to line 41, col 55 of module Recoverability: 256
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 49, col 32 to line 49, col 53 of module Recoverability: 4116
+  line 54, col 32 to line 54, col 53 of module Recoverability: 4116
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 50, col 32 to line 50, col 62 of module Recoverability: 4116
+  line 55, col 32 to line 55, col 62 of module Recoverability: 4116
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 51, col 44 to line 51, col 49 of module Recoverability: 4116
+  line 56, col 44 to line 56, col 49 of module Recoverability: 4116
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 51, col 52 to line 51, col 59 of module Recoverability: 4116
+  line 56, col 52 to line 56, col 59 of module Recoverability: 4116
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 53, col 43 to line 53, col 86 of module Recoverability: 2744
+  line 58, col 43 to line 58, col 86 of module Recoverability: 2744
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 54, col 56 to line 54, col 60 of module Recoverability: 2744
+  line 59, col 56 to line 59, col 60 of module Recoverability: 2744
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 54, col 63 to line 54, col 68 of module Recoverability: 2744
+  line 59, col 63 to line 59, col 68 of module Recoverability: 2744
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 55, col 43 to line 55, col 64 of module Recoverability: 1372
+  line 60, col 43 to line 60, col 64 of module Recoverability: 1372
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 56, col 43 to line 56, col 71 of module Recoverability: 1372
+  line 61, col 43 to line 61, col 71 of module Recoverability: 1372
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 57, col 53 to line 57, col 60 of module Recoverability: 1372
+  line 62, col 53 to line 62, col 60 of module Recoverability: 1372
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 58, col 42 to line 58, col 48 of module Recoverability: 4116
+  line 63, col 42 to line 63, col 48 of module Recoverability: 4116
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 59, col 24 to line 59, col 36 of module Recoverability: 8232
+  line 64, col 24 to line 64, col 36 of module Recoverability: 8232
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 60, col 24 to line 60, col 35 of module Recoverability: 256
+  line 65, col 24 to line 65, col 35 of module Recoverability: 256
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 61, col 37 to line 61, col 41 of module Recoverability: 256
+  line 66, col 37 to line 66, col 41 of module Recoverability: 256
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 61, col 44 to line 61, col 49 of module Recoverability: 256
+  line 66, col 44 to line 66, col 49 of module Recoverability: 256
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 61, col 52 to line 61, col 58 of module Recoverability: 256
+  line 66, col 52 to line 66, col 58 of module Recoverability: 256
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 61, col 61 to line 61, col 68 of module Recoverability: 256
+  line 66, col 61 to line 66, col 68 of module Recoverability: 256
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 62, col 23 to line 62, col 28 of module Recoverability: 8488
+  line 67, col 23 to line 67, col 28 of module Recoverability: 8488
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2202:0 @!@!@
 End of statistics.
 @!@!@ENDMSG 2202 @!@!@
 @!@!@STARTMSG 2200:0 @!@!@
-Progress(14) at 2016-12-27 22:09:33: 8745 states generated (982,584 s/min), 2657 distinct states found (298,539 ds/min), 0 states left on queue.
+Progress(14) at 2016-12-28 13:19:45: 8745 states generated (950,543 s/min), 2657 distinct states found (288,804 ds/min), 0 states left on queue.
 @!@!@ENDMSG 2200 @!@!@
 @!@!@STARTMSG 2199:0 @!@!@
 8745 states generated, 2657 distinct states found, 0 states left on queue.
@@ -140,5 +140,5 @@ Progress(14) at 2016-12-27 22:09:33: 8745 states generated (982,584 s/min), 2657
 The depth of the complete state graph search is 14.
 @!@!@ENDMSG 2194 @!@!@
 @!@!@STARTMSG 2186:0 @!@!@
-Finished in 00s at (2016-12-27 22:09:33)
+Finished in 00s at (2016-12-28 13:19:45)
 @!@!@ENDMSG 2186 @!@!@
