@@ -2,6 +2,29 @@
 
 In `NServiceBus` a message can be either sucessfully processed or moved to an error queue. The latter happens when processing fails `MaxAttempt` times.
 
+```
+
+                         +------------+
+                        |  Errors    |
+                        +------+-----+
+                               ^
+                               |
+                  +------------+--+---------+
+                  |               | Attempts|
++----------+      |               | Cache   |
+|  Input   +----> |               +---------+
++----------+      |   Receiver              |
+                  |                         |
+                  |                         |
+                  +------------+------------+
+                               |
+                               |
+                        +------v-----+
+                        |  Effects   |
+                        +------------+
+
+ ```
+
 ### Model
 
 Model specified in [Recoverability.tla]() is a simplification of a digital system, in this case [NServiceBus]() recoverability subsystem. It omits some aspects of the system and preserves others, based on their importance from verification perspective. 
@@ -30,16 +53,3 @@ What has been preserved:
  * Message handling in `Receiver` can either fail or succeed
 
 Granularity of the model is at the level of transaction, queue and counter operations - meaning that a single operation one of the three translates roughly to a single step in the specification. 
-
-```
-
-                                     +-------------+
-                                     |  Errors     |
-                                     +------^------+
-    +-------+     +------------+            |
-    | Input +---> |  Receiver  +------------+
-    +-------+     +------------+            |
-                                     +------v------+
-                                     |  Effects    |
-                                     +-------------+
- ```
