@@ -18,13 +18,12 @@
 <stringAttribute key="modelBehaviorNext" value=""/>
 <stringAttribute key="modelBehaviorSpec" value="Spec"/>
 <intAttribute key="modelBehaviorSpecType" value="1"/>
-<stringAttribute key="modelBehaviorVars" value="totalAttempts, crashes, tx, pc, cachedAttempts"/>
+<stringAttribute key="modelBehaviorVars" value="totalAttempts, tx, cachedAttempts"/>
 <stringAttribute key="modelComments" value=""/>
 <booleanAttribute key="modelCorrectnessCheckDeadlock" value="true"/>
 <listAttribute key="modelCorrectnessInvariants">
 <listEntry value="1EitherFailedOrProcessed"/>
 <listEntry value="1NoMoreThanMaxAttempts"/>
-<listEntry value="0TransactionsAreAppendOnly"/>
 </listAttribute>
 <listAttribute key="modelCorrectnessProperties">
 <listEntry value="0Termination"/>
@@ -33,13 +32,9 @@
 <stringAttribute key="modelParameterActionConstraint" value=""/>
 <listAttribute key="modelParameterConstants">
 <listEntry value="MaxAttempts;;2;0;0"/>
-<listEntry value="InProgress;;InProgress;1;0"/>
-<listEntry value="Committed;;Committed;1;0"/>
-<listEntry value="Errors;;Errors;1;0"/>
-<listEntry value="Effects;;Effects;1;0"/>
 <listEntry value="Msgs;;1..2;0;0"/>
-<listEntry value="NoneTx;;NoneTx;1;0"/>
 <listEntry value="CacheSize;;3;0;0"/>
+<listEntry value="Crashes;;TRUE;0;0"/>
 </listAttribute>
 <stringAttribute key="modelParameterContraint" value=""/>
 <listAttribute key="modelParameterDefinitions"/>

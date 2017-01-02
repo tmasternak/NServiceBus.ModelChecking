@@ -4,141 +4,72 @@ EXTENDS Integers, FiniteSets, Sequences
 CONSTANTS Msgs,          \* Set of all possible messages *\
           MaxAttempts,   \* Max number of processing inMemAttempts *\
           CacheSize, 
-          NoneTx, InProgress, Committed,
-          Effects, Errors
+          Crashes
           
 ASSUME /\ MaxAttempts \in Nat
        /\ CacheSize > 2
+       /\ Crashes \in {TRUE, FALSE}
 
-(*
+NoneTx   == "noneTx"
+Committed == "commitedTx"
+Effects   == "effects"
+Errors   == "errors"
 
---fair algorithm ReceiveWithRetries {
-    variables tx             = [m \in Msgs |-> [state |-> NoneTx, ops |-> {}]],
-              cachedAttempts = [m \in Msgs |-> 0],
-              totalAttempts  = cachedAttempts;
-              
-              crashes = FALSE;
-              
-    macro StartTx(msg)    { tx[msg].state := InProgress; }
-    macro CommitTx(msg)   { tx[msg].state := Committed; }
-    macro RollbackTx(msg) { tx[msg].state := NoneTx || tx[msg].ops := {}; }
-    
-    macro Crash()
-        { tx             := [m \in Msgs |-> IF tx[m].state # Committed THEN [state |-> NoneTx, ops |-> {}] ELSE tx[m]];
-          cachedAttempts := [m \in Msgs |-> 0];
-        }
-    
-    macro RecordAttempt(msg)
-        { \* If cache size exceeded than remove one item         
-          if(Cardinality({m \in Msgs: m # msg /\ cachedAttempts[m] # 0}) < CacheSize)
-            { cachedAttempts[msg] := cachedAttempts[msg] + 1; }
-          else 
-            { with(invMsg = CHOOSE x \in Msgs : cachedAttempts[x] > 0 /\ x # msg)
-                { cachedAttempts[msg]:= cachedAttempts[msg] + 1 ||
-                  cachedAttempts[invMsg] := 0; 
-                }
-            }
-        }
-    
-    macro ProcessingOk(msg) 
-        { tx[msg].ops := tx[msg].ops \cup { Effects } ||
-          tx[msg].state := Committed;
-        }
-    
-    macro ProcessingErr(msg) 
-        {  RecordAttempt(msg);
-           RollbackTx(msg); 
-        }
-        
-    macro Handle(msg)
-        { if (cachedAttempts[msg] < MaxAttempts)
-            { totalAttempts[msg]  := totalAttempts[msg] + 1;
-        
-              either { ProcessingOk(msg); }
-              or     { ProcessingErr(msg); }
-            }
-          else { tx[msg].ops := tx[msg].ops \cup { Errors }; }
-        }
-        
-    {
-      while (\E m \in Msgs : tx[m].state # Committed)               
-          {    either  { with (msg \in {c \in Msgs : tx[c].state = NoneTx})    
-                            { StartTx(msg); } 
-                       }
-               or      { with (msg \in {c \in Msgs : tx[c].state = InProgress /\ tx[c].ops = {} })
-                            {  Handle(msg); }
-                       } 
-               or      { with (msg \in {c \in Msgs : tx[c].state = InProgress /\ tx[c].ops # {} })
-                            { CommitTx(msg); } 
-                       }
-               or      { with (msg \in {c \in Msgs : tx[c].state = InProgress})
-                            { RollbackTx(msg); }
-                       }
-               or      { await crashes = TRUE;
-                         Crash();
-                       }
-          }
-    } 
-} 
 
-*)
-\* BEGIN TRANSLATION
-VARIABLES tx, cachedAttempts, totalAttempts, crashes, pc
+VARIABLES tx, cachedAttempts, totalAttempts
 
-vars == << tx, cachedAttempts, totalAttempts, crashes, pc >>
+vars == << tx, cachedAttempts, totalAttempts >>
 
 Init == (* Global variables *)
         /\ tx = [m \in Msgs |-> [state |-> NoneTx, ops |-> {}]]
         /\ cachedAttempts = [m \in Msgs |-> 0]
         /\ totalAttempts = cachedAttempts
-        /\ crashes = FALSE
-        /\ pc = "Lbl_1"
 
-Lbl_1 == /\ pc = "Lbl_1"
-         /\ IF \E m \in Msgs : tx[m].state # Committed
-               THEN /\ \/ /\ \E msg \in {c \in Msgs : tx[c].state = NoneTx}:
-                               tx' = [tx EXCEPT ![msg].state = InProgress]
-                          /\ UNCHANGED <<cachedAttempts, totalAttempts>>
-                       \/ /\ \E msg \in {c \in Msgs : tx[c].state = InProgress /\ tx[c].ops = {} }:
-                               IF cachedAttempts[msg] < MaxAttempts
-                                  THEN /\ totalAttempts' = [totalAttempts EXCEPT ![msg] = totalAttempts[msg] + 1]
-                                       /\ \/ /\ tx' = [tx EXCEPT ![msg].ops = tx[msg].ops \cup { Effects },
-                                                                 ![msg].state = Committed]
-                                             /\ UNCHANGED cachedAttempts
-                                          \/ /\ IF Cardinality({m \in Msgs: m # msg /\ cachedAttempts[m] # 0}) < CacheSize
-                                                   THEN /\ cachedAttempts' = [cachedAttempts EXCEPT ![msg] = cachedAttempts[msg] + 1]
-                                                   ELSE /\ LET invMsg == CHOOSE x \in Msgs : cachedAttempts[x] > 0 /\ x # msg IN
-                                                             cachedAttempts' = [cachedAttempts EXCEPT ![msg] = cachedAttempts[msg] + 1,
-                                                                                                      ![invMsg] = 0]
-                                             /\ tx' = [tx EXCEPT ![msg].state = NoneTx,
-                                                                 ![msg].ops = {}]
-                                  ELSE /\ tx' = [tx EXCEPT ![msg].ops = tx[msg].ops \cup { Errors }]
-                                       /\ UNCHANGED << cachedAttempts, 
-                                                       totalAttempts >>
-                       \/ /\ \E msg \in {c \in Msgs : tx[c].state = InProgress /\ tx[c].ops # {} }:
-                               tx' = [tx EXCEPT ![msg].state = Committed]
-                          /\ UNCHANGED <<cachedAttempts, totalAttempts>>
-                       \/ /\ \E msg \in {c \in Msgs : tx[c].state = InProgress}:
-                               tx' = [tx EXCEPT ![msg].state = NoneTx,
-                                                ![msg].ops = {}]
-                          /\ UNCHANGED <<cachedAttempts, totalAttempts>>
-                       \/ /\ crashes = TRUE
-                          /\ tx' = [m \in Msgs |-> IF tx[m].state # Committed THEN [state |-> NoneTx, ops |-> {}] ELSE tx[m]]
-                          /\ cachedAttempts' = [m \in Msgs |-> 0]
-                          /\ UNCHANGED totalAttempts
-                    /\ pc' = "Lbl_1"
-               ELSE /\ pc' = "Done"
-                    /\ UNCHANGED << tx, cachedAttempts, totalAttempts >>
-         /\ UNCHANGED crashes
 
-Next == Lbl_1
-           \/ (* Disjunct to prevent deadlock on termination *)
-              (pc = "Done" /\ UNCHANGED vars)
+ProcessingOk ==
+    \E m \in Msgs :
+        /\ tx[m].state = NoneTx
+        /\ cachedAttempts[m] < MaxAttempts
+        /\ tx' = [tx EXCEPT ![m] = [state |-> Committed, ops |-> {Effects}]]
+        /\ totalAttempts' = [totalAttempts EXCEPT ![m] = @ + 1]
+        /\ UNCHANGED << cachedAttempts >>
+        
+ProcessingErr ==
+    \E m \in Msgs :
+        /\ tx[m].state = NoneTx
+        /\ cachedAttempts[m] < MaxAttempts
+        /\ totalAttempts' = [totalAttempts EXCEPT ![m] = @ + 1]
+        /\ IF Cardinality({x \in Msgs: x # m /\ cachedAttempts[x] # 0}) < CacheSize
+           THEN /\ cachedAttempts' = [cachedAttempts EXCEPT ![m] = @ + 1]
+           ELSE /\ LET invM == CHOOSE x \in Msgs : cachedAttempts[x] > 0 /\ x # m IN
+                   cachedAttempts' = [cachedAttempts EXCEPT ![m] = @ + 1, ![invM] = 0]
+        /\ UNCHANGED << tx >>           
+
+\* Message moved to error queue because number or attempts exceeded max
+MoveToError == 
+    \E m \in Msgs : 
+        /\ tx[m].state = NoneTx 
+        /\ cachedAttempts[m] >= MaxAttempts 
+        /\ tx' = [tx EXCEPT ![m] = [state |-> Committed, ops |-> {Errors}]]
+        /\ UNCHANGED << cachedAttempts, totalAttempts >>
+
+\* On crash all transactions are rollbacked and attempts cache is cleared
+ProcessCrash == 
+    /\ Crashes = TRUE
+    /\ tx' = [m \in Msgs |-> IF tx[m].state # Committed THEN [state |-> NoneTx, ops |-> {}] ELSE tx[m]]
+    /\ cachedAttempts' = [m \in Msgs |-> 0]
+    /\ UNCHANGED totalAttempts
+
+Next == 
+    \/ ProcessCrash 
+    \/ MoveToError
+    \/ ProcessingOk
+    \/ ProcessingErr
+
 
 Spec == /\ Init /\ [][Next]_vars
         /\ WF_vars(Next)
 
-Termination == <>(pc = "Done")
 
 \* END TRANSLATION
 
@@ -155,5 +86,5 @@ NoMoreThanMaxAttempts == \A m \in Msgs: totalAttempts[m] <= MaxAttempts
 
 =============================================================================
 \* Modification History
-\* Last modified Mon Jan 02 12:37:32 CET 2017 by Tomasz Masternak
+\* Last modified Mon Jan 02 15:00:27 CET 2017 by Tomasz Masternak
 \* Created Tue Dec 27 20:32:15 CET 2016 by Tomasz Masternak
