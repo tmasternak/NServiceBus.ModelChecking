@@ -51,5 +51,3 @@ What has been preserved:
  * Number of processing attempts is stored by `Receiver`'s in memory
  * `Receiver` can crash and later recover losing attempts cache
  * Message handling in `Receiver` can either fail or succeed
-
-Granularity of the model is at the level of transaction, queue and counter operations - meaning that a single operation one of the three translates roughly to a single step in the specification. 
