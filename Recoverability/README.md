@@ -41,13 +41,13 @@ What has been omited:
  * Modular design - logic residing in [Core]() and [Transport]() module are modeled as a single PlusCalc process
  * Details of user code logic - all business logic side effects are modeled as a message being sent to `Effects` queue
  * Endpoint concurrency limit - we put no cap on the concurrency level 
- * **Temporary** Competing consumers deployments - there is a single `Receiver` running at any given point in time
  * **Temporary** Every input message participate in at most one transaction at any given point in time
 
 What has been preserved:
   
  * Queues' data is stored in stable storage and operations participate in atomic distributed transactions.
  * Transactions can time out
- * Number of processing attempts is stored by `Receiver`'s in memory
+ * Number of processing attempts is stored by the `Receiver` in memory
  * `Receiver` can crash and later recover losing attempts cache
+ * There can be more than one `Receiver` aka competing consumer
  * Message handling in `Receiver` can either fail or succeed

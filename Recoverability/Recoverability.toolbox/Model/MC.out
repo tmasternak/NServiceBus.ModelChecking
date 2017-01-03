@@ -25,7 +25,7 @@ Semantic processing of module MC
 SANY finished.
 @!@!@ENDMSG 2219 @!@!@
 @!@!@STARTMSG 2185:0 @!@!@
-Starting... (2017-01-02 15:00:35)
+Starting... (2017-01-03 13:19:18)
 @!@!@ENDMSG 2185 @!@!@
 @!@!@STARTMSG 2189:0 @!@!@
 Computing initial states...
@@ -34,7 +34,7 @@ Computing initial states...
 Finished computing initial states: 1 distinct state generated.
 @!@!@ENDMSG 2190 @!@!@
 @!@!@STARTMSG 2110:1 @!@!@
-Invariant inv_1483365635039142000 is violated.
+Invariant inv_1483445958038174000 is violated.
 @!@!@ENDMSG 2110 @!@!@
 @!@!@STARTMSG 2121:1 @!@!@
 The behavior up to this point is:
@@ -42,93 +42,103 @@ The behavior up to this point is:
 @!@!@STARTMSG 2217:4 @!@!@
 1: <Initial predicate>
 /\ totalAttempts = <<0, 0>>
-/\ tx = <<[state |-> "noneTx", ops |-> {}], [state |-> "noneTx", ops |-> {}]>>
-/\ cachedAttempts = <<0, 0>>
+/\ tx = << [proc |-> 0, state |-> "noneTx", ops |-> {}],
+   [proc |-> 0, state |-> "noneTx", ops |-> {}] >>
+/\ cachedAttempts = <<<<0, 0>>, <<0, 0>>>>
 
 @!@!@ENDMSG 2217 @!@!@
 @!@!@STARTMSG 2217:4 @!@!@
-2: <Action line 39, col 9 to line 46, col 29 of module Recoverability>
+2: <Action line 36, col 9 to line 40, col 41 of module Recoverability>
 /\ totalAttempts = <<1, 0>>
-/\ tx = <<[state |-> "noneTx", ops |-> {}], [state |-> "noneTx", ops |-> {}]>>
-/\ cachedAttempts = <<1, 0>>
+/\ tx = << [proc |-> 1, state |-> "commitedTx", ops |-> {"effects"}],
+   [proc |-> 0, state |-> "noneTx", ops |-> {}] >>
+/\ cachedAttempts = <<<<0, 0>>, <<0, 0>>>>
 
 @!@!@ENDMSG 2217 @!@!@
 @!@!@STARTMSG 2217:4 @!@!@
-3: <Action line 58, col 5 to line 61, col 30 of module Recoverability>
-/\ totalAttempts = <<1, 0>>
-/\ tx = <<[state |-> "noneTx", ops |-> {}], [state |-> "noneTx", ops |-> {}]>>
-/\ cachedAttempts = <<0, 0>>
+3: <Action line 45, col 9 to line 52, col 29 of module Recoverability>
+/\ totalAttempts = <<1, 1>>
+/\ tx = << [proc |-> 1, state |-> "commitedTx", ops |-> {"effects"}],
+   [proc |-> 0, state |-> "noneTx", ops |-> {}] >>
+/\ cachedAttempts = <<<<0, 1>>, <<0, 0>>>>
 
 @!@!@ENDMSG 2217 @!@!@
 @!@!@STARTMSG 2217:4 @!@!@
-4: <Action line 39, col 9 to line 46, col 29 of module Recoverability>
-/\ totalAttempts = <<2, 0>>
-/\ tx = <<[state |-> "noneTx", ops |-> {}], [state |-> "noneTx", ops |-> {}]>>
-/\ cachedAttempts = <<1, 0>>
+4: <Action line 45, col 9 to line 52, col 29 of module Recoverability>
+/\ totalAttempts = <<1, 2>>
+/\ tx = << [proc |-> 1, state |-> "commitedTx", ops |-> {"effects"}],
+   [proc |-> 0, state |-> "noneTx", ops |-> {}] >>
+/\ cachedAttempts = <<<<0, 1>>, <<0, 1>>>>
 
 @!@!@ENDMSG 2217 @!@!@
 @!@!@STARTMSG 2217:4 @!@!@
-5: <Action line 31, col 9 to line 35, col 41 of module Recoverability>
-/\ totalAttempts = <<3, 0>>
-/\ tx = << [state |-> "commitedTx", ops |-> {"effects"}],
-   [state |-> "noneTx", ops |-> {}] >>
-/\ cachedAttempts = <<1, 0>>
+5: <Action line 36, col 9 to line 40, col 41 of module Recoverability>
+/\ totalAttempts = <<1, 3>>
+/\ tx = << [proc |-> 1, state |-> "commitedTx", ops |-> {"effects"}],
+   [proc |-> 1, state |-> "commitedTx", ops |-> {"effects"}] >>
+/\ cachedAttempts = <<<<0, 1>>, <<0, 1>>>>
 
 @!@!@ENDMSG 2217 @!@!@
 @!@!@STARTMSG 2201:0 @!@!@
-The coverage statistics at 2017-01-02 15:00:35
+The coverage statistics at 2017-01-03 13:19:18
 @!@!@ENDMSG 2201 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 33, col 12 to line 33, col 76 of module Recoverability: 26
+  line 25, col 12 to line 25, col 13 of module Recoverability: 10
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 34, col 12 to line 34, col 63 of module Recoverability: 26
+  line 25, col 16 to line 25, col 29 of module Recoverability: 10
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 35, col 25 to line 35, col 38 of module Recoverability: 26
+  line 25, col 32 to line 25, col 44 of module Recoverability: 10
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 41, col 12 to line 41, col 63 of module Recoverability: 25
+  line 38, col 12 to line 38, col 88 of module Recoverability: 53
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 43, col 20 to line 43, col 73 of module Recoverability: 25
+  line 39, col 12 to line 39, col 63 of module Recoverability: 53
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 45, col 20 to line 45, col 86 of module Recoverability: 0
+  line 40, col 25 to line 40, col 38 of module Recoverability: 53
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 46, col 25 to line 46, col 26 of module Recoverability: 25
+  line 47, col 12 to line 47, col 63 of module Recoverability: 48
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 53, col 12 to line 53, col 75 of module Recoverability: 2
+  line 49, col 20 to line 49, col 91 of module Recoverability: 48
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 54, col 25 to line 54, col 38 of module Recoverability: 2
+  line 51, col 20 to line 51, col 104 of module Recoverability: 0
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 54, col 41 to line 54, col 53 of module Recoverability: 2
+  line 52, col 25 to line 52, col 26 of module Recoverability: 48
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 59, col 8 to line 59, col 103 of module Recoverability: 22
+  line 60, col 12 to line 60, col 87 of module Recoverability: 3
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 60, col 8 to line 60, col 43 of module Recoverability: 22
+  line 61, col 25 to line 61, col 38 of module Recoverability: 3
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 61, col 18 to line 61, col 30 of module Recoverability: 22
+  line 61, col 41 to line 61, col 53 of module Recoverability: 3
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 67, col 12 to line 67, col 78 of module Recoverability: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 68, col 22 to line 68, col 34 of module Recoverability: 0
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2202:0 @!@!@
 End of statistics.
 @!@!@ENDMSG 2202 @!@!@
 @!@!@STARTMSG 2200:0 @!@!@
-Progress(5) at 2017-01-02 15:00:35: 76 states generated (23,147 s/min), 48 distinct states found (14,619 ds/min), 25 states left on queue.
+Progress(5) at 2017-01-03 13:19:18: 115 states generated (35,384 s/min), 78 distinct states found (24,000 ds/min), 41 states left on queue.
 @!@!@ENDMSG 2200 @!@!@
 @!@!@STARTMSG 2199:0 @!@!@
-76 states generated, 48 distinct states found, 25 states left on queue.
+115 states generated, 78 distinct states found, 41 states left on queue.
 @!@!@ENDMSG 2199 @!@!@
 @!@!@STARTMSG 2194:0 @!@!@
 The depth of the complete state graph search is 5.
 @!@!@ENDMSG 2194 @!@!@
 @!@!@STARTMSG 2186:0 @!@!@
-Finished in 00s at (2017-01-02 15:00:35)
+Finished in 00s at (2017-01-03 13:19:18)
 @!@!@ENDMSG 2186 @!@!@
