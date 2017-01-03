@@ -8,7 +8,7 @@ CONSTANTS Msgs,          \* Set of all possible messages *\
           Processes
           
 ASSUME /\ MaxAttempts \in Nat
-       /\ CacheSize \in Nat /\ CacheSize > 2 
+       /\ CacheSize \in Nat /\ CacheSize > 1 
        /\ Crashes \in {TRUE, FALSE}
        /\ Processes \subseteq Nat
 
@@ -24,11 +24,17 @@ VARIABLES tx, cachedAttempts, totalAttempts
 
 vars == << tx, cachedAttempts, totalAttempts >>
 
+TypeOK ==
+    /\ tx \in [Msgs -> [proc  : Processes \cup {NoProc}, 
+                        state : {NoneTx, Committed}, 
+                        ops   : SUBSET {Effects, Errors}]]
+    /\ cachedAttempts \in [Processes -> [Msgs -> Nat]]                         
+    /\ totalAttempts \in [Msgs -> Nat]
+    
 Init == (* Global variables *)
-        /\ tx = [m \in Msgs |-> [proc |-> NoProc, state |-> NoneTx, ops |-> {}]]
-        /\ cachedAttempts = [p \in Processes |-> [m \in Msgs |-> 0]]
-        /\ totalAttempts = [m \in Msgs |-> 0]
-
+    /\ tx = [m \in Msgs |-> [proc |-> NoProc, state |-> NoneTx, ops |-> {}]]
+    /\ cachedAttempts = [p \in Processes |-> [m \in Msgs |-> 0]]
+    /\ totalAttempts = [m \in Msgs |-> 0]
 
 ProcessingOk ==
     \E p \in Processes :
@@ -65,7 +71,7 @@ ProcessCrash ==
     /\ Crashes = TRUE
     /\ \E p \in Processes :
         /\ cachedAttempts' = [cachedAttempts EXCEPT ![p] = [m \in Msgs |-> 0]]
-        /\ UNCHANGED totalAttempts
+        /\ UNCHANGED << tx, totalAttempts >>
 
 Next == 
     \/ ProcessCrash 
@@ -95,5 +101,5 @@ NoMoreThanMaxAttempts == \A m \in Msgs: totalAttempts[m] <= MaxAttempts
 
 =============================================================================
 \* Modification History
-\* Last modified Tue Jan 03 13:18:23 CET 2017 by Tomasz Masternak
+\* Last modified Tue Jan 03 14:06:33 CET 2017 by Tomasz Masternak
 \* Created Tue Dec 27 20:32:15 CET 2016 by Tomasz Masternak
