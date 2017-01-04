@@ -20,11 +20,12 @@
 <intAttribute key="modelBehaviorSpecType" value="1"/>
 <stringAttribute key="modelBehaviorVars" value="totalAttempts, tx, cachedAttempts"/>
 <stringAttribute key="modelComments" value=""/>
-<booleanAttribute key="modelCorrectnessCheckDeadlock" value="true"/>
+<booleanAttribute key="modelCorrectnessCheckDeadlock" value="false"/>
 <listAttribute key="modelCorrectnessInvariants">
-<listEntry value="1EitherFailedOrProcessed"/>
+<listEntry value="0EitherFailedOrProcessed"/>
 <listEntry value="1NoMoreThanMaxAttempts"/>
 <listEntry value="1TypeOK"/>
+<listEntry value="0\A m \in Msgs : \A t \in tx[m] : /\ t.cont # SendToErrorsCont"/>
 </listAttribute>
 <listAttribute key="modelCorrectnessProperties">
 <listEntry value="0Termination"/>
@@ -32,11 +33,12 @@
 <stringAttribute key="modelExpressionEval" value=""/>
 <stringAttribute key="modelParameterActionConstraint" value=""/>
 <listAttribute key="modelParameterConstants">
-<listEntry value="MaxAttempts;;5;0;0"/>
-<listEntry value="Msgs;;1..4;0;0"/>
-<listEntry value="CacheSize;;2;0;0"/>
-<listEntry value="Crashes;;TRUE;0;0"/>
-<listEntry value="Processes;;{1, 2};0;0"/>
+<listEntry value="MaxAttempts;;2;0;0"/>
+<listEntry value="Msgs;;1..2;0;0"/>
+<listEntry value="CacheSize;;3;0;0"/>
+<listEntry value="Crashes;;FALSE;0;0"/>
+<listEntry value="Processes;;{1};0;0"/>
+<listEntry value="TxTimeouts;;FALSE;0;0"/>
 </listAttribute>
 <stringAttribute key="modelParameterContraint" value=""/>
 <listAttribute key="modelParameterDefinitions"/>
