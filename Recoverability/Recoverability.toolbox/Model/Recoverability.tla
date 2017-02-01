@@ -89,7 +89,7 @@ Process ==
     \E m \in Msgs :
     \E t \in tx[m] :
         /\ t.cont = ProcessCont
-        /\ totalAttempts' = [totalAttempts EXCEPT ![m] = IF @ + 1 > 2*MaxAttempts THEN 2*MaxAttempts ELSE @ + 1]
+        /\ totalAttempts' = [totalAttempts EXCEPT ![m] = IF @ + 1 > 2 * MaxAttempts THEN MaxAttempts ELSE @ + 1]
         /\ \/ /\ tx' = [tx EXCEPT ![m] = (@ \ {t}) \cup {[t EXCEPT !["cont"] = CommitCont]}]    
               /\ ClearCache(m, t.proc)
            \/ /\ tx' = [tx EXCEPT ![m] = (@ \ {t}) \cup {[t EXCEPT !["cont"] = RollbackCont]}]
@@ -114,7 +114,7 @@ CommitTx ==
            
 
 Next == 
- /\ \/ BeginTx
+    \/ BeginTx
     \/ Process
     \/ SendToErrors
     \/ CommitTx
@@ -133,5 +133,5 @@ NoMoreThanMaxAttempts == \A m \in Msgs: totalAttempts[m] <= MaxAttempts
 
 =============================================================================
 \* Modification History
-\* Last modified Wed Jan 04 23:32:02 CET 2017 by Tomasz Masternak
+\* Last modified Thu Jan 05 13:49:54 CET 2017 by Tomasz Masternak
 \* Created Tue Dec 27 20:32:15 CET 2016 by Tomasz Masternak
