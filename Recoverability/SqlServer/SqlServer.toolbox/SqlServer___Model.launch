@@ -18,7 +18,7 @@
 <stringAttribute key="modelBehaviorNext" value=""/>
 <stringAttribute key="modelBehaviorSpec" value="Spec"/>
 <intAttribute key="modelBehaviorSpecType" value="1"/>
-<stringAttribute key="modelBehaviorVars" value="attemptsPerMsg, msgs, processingsPerMsg, failedAttempts, m, pc"/>
+<stringAttribute key="modelBehaviorVars" value="attemptsPerMsg, msgs, processingsPerMsg, failedAttempts, m, nodeId, pc, failedMsgs, nodes"/>
 <stringAttribute key="modelComments" value=""/>
 <booleanAttribute key="modelCorrectnessCheckDeadlock" value="true"/>
 <listAttribute key="modelCorrectnessInvariants">
@@ -33,6 +33,7 @@
 <listEntry value="MaxFailedAttempts;;2;0;0"/>
 <listEntry value="NMsgs;;2;0;0"/>
 <listEntry value="NProcessors;;4;0;0"/>
+<listEntry value="NNodes;;1;0;0"/>
 </listAttribute>
 <stringAttribute key="modelParameterContraint" value=""/>
 <listAttribute key="modelParameterDefinitions"/>
