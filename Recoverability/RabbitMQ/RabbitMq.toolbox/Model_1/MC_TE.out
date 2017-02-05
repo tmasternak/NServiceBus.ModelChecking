@@ -8,7 +8,7 @@ Running in Model-Checking mode.
 Starting SANY...
 @!@!@ENDMSG 2220 @!@!@
 Parsing file MC.tla
-Parsing file RecoverabilityRabbitMQ.tla
+Parsing file RabbitMq.tla
 Parsing file C:\projects\tla+\toolbox\plugins\org.lamport.tlatools_1.0.0.201512230951\tla2sany\StandardModules\TLC.tla
 Parsing file C:\projects\tla+\toolbox\plugins\org.lamport.tlatools_1.0.0.201512230951\tla2sany\StandardModules\Integers.tla
 Parsing file C:\projects\tla+\toolbox\plugins\org.lamport.tlatools_1.0.0.201512230951\tla2sany\StandardModules\FiniteSets.tla
@@ -18,33 +18,21 @@ Semantic processing of module Naturals
 Semantic processing of module Integers
 Semantic processing of module Sequences
 Semantic processing of module FiniteSets
-Semantic processing of module RecoverabilityRabbitMQ
+Semantic processing of module RabbitMq
 Semantic processing of module TLC
 Semantic processing of module MC
 @!@!@STARTMSG 2219:0 @!@!@
 SANY finished.
 @!@!@ENDMSG 2219 @!@!@
 @!@!@STARTMSG 2185:0 @!@!@
-Starting... (2017-02-01 22:33:50)
+Starting... (2017-02-05 22:08:18)
 @!@!@ENDMSG 2185 @!@!@
-@!@!@STARTMSG 2212:0 @!@!@
-Implied-temporal checking--satisfiability problem has 1 branches.
-@!@!@ENDMSG 2212 @!@!@
 @!@!@STARTMSG 2189:0 @!@!@
 Computing initial states...
 @!@!@ENDMSG 2189 @!@!@
 @!@!@STARTMSG 2190:0 @!@!@
 Finished computing initial states: 1 distinct state generated.
 @!@!@ENDMSG 2190 @!@!@
-@!@!@STARTMSG 2200:0 @!@!@
-Progress(13) at 2017-02-01 22:33:51: 42217 states generated, 14689 distinct states found, 0 states left on queue.
-@!@!@ENDMSG 2200 @!@!@
-@!@!@STARTMSG 2192:0 @!@!@
-Checking temporal properties for the complete state space with 14689 total distinct states at (2017-02-01 22:33:51)
-@!@!@ENDMSG 2192 @!@!@
-@!@!@STARTMSG 2267:0 @!@!@
-Finished checking temporal properties in 00s at 2017-02-01 22:33:51
-@!@!@ENDMSG 2267 @!@!@
 @!@!@STARTMSG 2193:0 @!@!@
 Model checking completed. No error has been found.
   Estimates of the probability that TLC did not check all reachable states
@@ -53,100 +41,100 @@ Model checking completed. No error has been found.
   based on the actual fingerprints:  val = 2.6E-11
 @!@!@ENDMSG 2193 @!@!@
 @!@!@STARTMSG 2201:0 @!@!@
-The coverage statistics at 2017-02-01 22:33:51
+The coverage statistics at 2017-02-05 22:08:19
 @!@!@ENDMSG 2201 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 33, col 12 to line 33, col 15 of module RecoverabilityRabbitMQ: 648
+  line 33, col 12 to line 33, col 15 of module RabbitMq: 648
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 33, col 18 to line 33, col 19 of module RecoverabilityRabbitMQ: 648
+  line 33, col 18 to line 33, col 19 of module RabbitMq: 648
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 33, col 22 to line 33, col 30 of module RecoverabilityRabbitMQ: 648
+  line 33, col 22 to line 33, col 30 of module RabbitMq: 648
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 33, col 33 to line 33, col 44 of module RecoverabilityRabbitMQ: 648
+  line 33, col 33 to line 33, col 44 of module RabbitMq: 648
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 33, col 47 to line 33, col 62 of module RecoverabilityRabbitMQ: 648
+  line 33, col 47 to line 33, col 62 of module RabbitMq: 648
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 33, col 65 to line 33, col 67 of module RecoverabilityRabbitMQ: 648
+  line 33, col 65 to line 33, col 67 of module RabbitMq: 648
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 34, col 12 to line 34, col 22 of module RecoverabilityRabbitMQ: 648
+  line 34, col 12 to line 34, col 22 of module RabbitMq: 648
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 50, col 22 to line 50, col 52 of module RecoverabilityRabbitMQ: 5196
+  line 50, col 22 to line 50, col 52 of module RabbitMq: 5196
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 51, col 22 to line 51, col 39 of module RecoverabilityRabbitMQ: 5196
+  line 51, col 22 to line 51, col 39 of module RabbitMq: 5196
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 52, col 17 to line 52, col 49 of module RecoverabilityRabbitMQ: 5196
+  line 52, col 17 to line 52, col 49 of module RabbitMq: 5196
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 53, col 30 to line 53, col 38 of module RecoverabilityRabbitMQ: 5196
+  line 53, col 30 to line 53, col 38 of module RabbitMq: 5196
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 53, col 41 to line 53, col 52 of module RecoverabilityRabbitMQ: 5196
+  line 53, col 41 to line 53, col 52 of module RabbitMq: 5196
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 53, col 55 to line 53, col 70 of module RecoverabilityRabbitMQ: 5196
+  line 53, col 55 to line 53, col 70 of module RabbitMq: 5196
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 54, col 30 to line 54, col 40 of module RecoverabilityRabbitMQ: 5196
+  line 54, col 30 to line 54, col 40 of module RabbitMq: 5196
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 58, col 28 to line 58, col 94 of module RecoverabilityRabbitMQ: 20784
+  line 58, col 28 to line 58, col 94 of module RabbitMq: 20784
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 59, col 34 to line 59, col 79 of module RecoverabilityRabbitMQ: 10392
+  line 59, col 34 to line 59, col 79 of module RabbitMq: 10392
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 60, col 46 to line 60, col 57 of module RecoverabilityRabbitMQ: 10392
+  line 60, col 46 to line 60, col 57 of module RabbitMq: 10392
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 60, col 60 to line 60, col 75 of module RecoverabilityRabbitMQ: 10392
+  line 60, col 60 to line 60, col 75 of module RabbitMq: 10392
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 61, col 34 to line 61, col 115 of module RecoverabilityRabbitMQ: 10392
+  line 61, col 34 to line 61, col 115 of module RabbitMq: 10392
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 62, col 34 to line 62, col 119 of module RecoverabilityRabbitMQ: 10392
+  line 62, col 34 to line 62, col 119 of module RabbitMq: 10392
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 63, col 44 to line 63, col 52 of module RecoverabilityRabbitMQ: 10392
+  line 63, col 44 to line 63, col 52 of module RabbitMq: 10392
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 64, col 28 to line 64, col 60 of module RecoverabilityRabbitMQ: 20784
+  line 64, col 28 to line 64, col 60 of module RabbitMq: 20784
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 65, col 28 to line 65, col 61 of module RecoverabilityRabbitMQ: 15588
+  line 65, col 28 to line 65, col 61 of module RabbitMq: 15588
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 66, col 41 to line 66, col 49 of module RecoverabilityRabbitMQ: 15588
+  line 66, col 41 to line 66, col 49 of module RabbitMq: 15588
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 66, col 52 to line 66, col 63 of module RecoverabilityRabbitMQ: 15588
+  line 66, col 52 to line 66, col 63 of module RabbitMq: 15588
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 67, col 41 to line 67, col 56 of module RecoverabilityRabbitMQ: 15588
+  line 67, col 41 to line 67, col 56 of module RabbitMq: 15588
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 67, col 59 to line 67, col 69 of module RecoverabilityRabbitMQ: 15588
+  line 67, col 59 to line 67, col 69 of module RabbitMq: 15588
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 68, col 30 to line 68, col 33 of module RecoverabilityRabbitMQ: 36372
+  line 68, col 30 to line 68, col 33 of module RabbitMq: 36372
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 68, col 36 to line 68, col 38 of module RecoverabilityRabbitMQ: 36372
+  line 68, col 36 to line 68, col 38 of module RabbitMq: 36372
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2202:0 @!@!@
 End of statistics.
 @!@!@ENDMSG 2202 @!@!@
 @!@!@STARTMSG 2200:0 @!@!@
-Progress(13) at 2017-02-01 22:33:51: 42217 states generated (2,163,125 s/min), 14689 distinct states found (752,638 ds/min), 0 states left on queue.
+Progress(13) at 2017-02-05 22:08:19: 42217 states generated (4,852,528 s/min), 14689 distinct states found (1,688,390 ds/min), 0 states left on queue.
 @!@!@ENDMSG 2200 @!@!@
 @!@!@STARTMSG 2199:0 @!@!@
 42217 states generated, 14689 distinct states found, 0 states left on queue.
@@ -155,5 +143,5 @@ Progress(13) at 2017-02-01 22:33:51: 42217 states generated (2,163,125 s/min), 1
 The depth of the complete state graph search is 13.
 @!@!@ENDMSG 2194 @!@!@
 @!@!@STARTMSG 2186:0 @!@!@
-Finished in 01s at (2017-02-01 22:33:51)
+Finished in 00s at (2017-02-05 22:08:19)
 @!@!@ENDMSG 2186 @!@!@

@@ -22,10 +22,10 @@
 <stringAttribute key="modelComments" value=""/>
 <booleanAttribute key="modelCorrectnessCheckDeadlock" value="true"/>
 <listAttribute key="modelCorrectnessInvariants">
-<listEntry value="1MaxInvocations"/>
+<listEntry value="1UpperBoundOnAttempts"/>
 </listAttribute>
 <listAttribute key="modelCorrectnessProperties">
-<listEntry value="1Termination"/>
+<listEntry value="0Termination"/>
 </listAttribute>
 <stringAttribute key="modelExpressionEval" value=""/>
 <stringAttribute key="modelParameterActionConstraint" value=""/>
@@ -41,6 +41,6 @@
 <intAttribute key="simuAril" value="-1"/>
 <intAttribute key="simuDepth" value="100"/>
 <intAttribute key="simuSeed" value="-1"/>
-<stringAttribute key="specName" value="RecoverabilityRabbitMQ"/>
+<stringAttribute key="specName" value="RabbitMq"/>
 <stringAttribute key="view" value=""/>
 </launchConfiguration>

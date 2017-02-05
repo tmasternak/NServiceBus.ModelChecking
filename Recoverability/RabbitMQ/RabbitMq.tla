@@ -1,4 +1,4 @@
------------------------ MODULE RecoverabilityRabbitMQ -----------------------
+------------------------------ MODULE RabbitMq ------------------------------
 EXTENDS Integers, FiniteSets
 
 MaxAttempts == 2
@@ -80,10 +80,9 @@ Termination == <>(\A self \in ProcSet: pc[self] = "Done")
 
 \* END TRANSLATION
 
-MaxInvocations == \A self \in ProcSet: invocations[self] <= MaxAttempts
-
+UpperBoundOnAttempts == \A self \in ProcSet: invocations[self] <= MaxAttempts
 
 =============================================================================
 \* Modification History
-\* Last modified Wed Feb 01 22:33:45 CET 2017 by Tomasz Masternak
-\* Created Tue Jan 31 13:01:10 CET 2017 by Tomasz Masternak
+\* Last modified Sun Feb 05 22:07:14 CET 2017 by Tomasz Masternak
+\* Created Sun Feb 05 22:05:47 CET 2017 by Tomasz Masternak
