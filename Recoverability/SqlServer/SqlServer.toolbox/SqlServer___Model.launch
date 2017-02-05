@@ -23,10 +23,11 @@
 <booleanAttribute key="modelCorrectnessCheckDeadlock" value="true"/>
 <listAttribute key="modelCorrectnessInvariants">
 <listEntry value="1TypeOK"/>
-<listEntry value="1ProcessingAttemptsAreBounded"/>
+<listEntry value="1UpperBoundOnProcessingAttempts"/>
+<listEntry value="1LowerBoundOnProcessingAttempts"/>
 </listAttribute>
 <listAttribute key="modelCorrectnessProperties"/>
-<stringAttribute key="modelExpressionEval" value=""/>
+<stringAttribute key="modelExpressionEval" value="SUBSET (1..2)"/>
 <stringAttribute key="modelParameterActionConstraint" value=""/>
 <listAttribute key="modelParameterConstants">
 <listEntry value="MaxFailedAttempts;;2;0;0"/>
@@ -44,5 +45,8 @@
 <intAttribute key="simuDepth" value="100"/>
 <intAttribute key="simuSeed" value="-1"/>
 <stringAttribute key="specName" value="SqlServer"/>
+<listAttribute key="traceExploreExpressions">
+<listEntry value="01..2 \in SUBSET 1..NMsgs"/>
+</listAttribute>
 <stringAttribute key="view" value=""/>
 </launchConfiguration>

@@ -25,8 +25,9 @@ Semantic processing of module MC
 SANY finished.
 @!@!@ENDMSG 2219 @!@!@
 @!@!@STARTMSG 2185:0 @!@!@
-Starting... (2017-02-05 00:03:22)
+Starting... (2017-02-05 22:00:58)
 @!@!@ENDMSG 2185 @!@!@
+<<"$!@$!@$!@$!@$!", {{}, {1}, {2}, {1, 2}}>>
 @!@!@STARTMSG 2189:0 @!@!@
 Computing initial states...
 @!@!@ENDMSG 2189 @!@!@
@@ -34,159 +35,153 @@ Computing initial states...
 Finished computing initial states: 1 distinct state generated.
 @!@!@ENDMSG 2190 @!@!@
 @!@!@STARTMSG 2200:0 @!@!@
-Progress(15) at 2017-02-05 00:03:25: 1429463 states generated (1,429,448 s/min), 498727 distinct states found (498,727 ds/min), 213717 states left on queue.
+Progress(18) at 2017-02-05 22:01:02: 1283448 states generated (1,283,430 s/min), 453738 distinct states found (453,738 ds/min), 150059 states left on queue.
 @!@!@ENDMSG 2200 @!@!@
 @!@!@STARTMSG 2193:0 @!@!@
 Model checking completed. No error has been found.
   Estimates of the probability that TLC did not check all reachable states
   because two distinct states had the same fingerprint:
-  calculated (optimistic):  val = 9.6E-6
-  based on the actual fingerprints:  val = 1.6E-4
+  calculated (optimistic):  val = 3.1E-6
+  based on the actual fingerprints:  val = 5.4E-6
 @!@!@ENDMSG 2193 @!@!@
 @!@!@STARTMSG 2201:0 @!@!@
-The coverage statistics at 2017-02-05 00:04:12
+The coverage statistics at 2017-02-05 22:01:29
 @!@!@ENDMSG 2201 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 100, col 29 to line 100, col 45 of module SqlServer: 11026260
+  line 53, col 12 to line 53, col 15 of module SqlServer: 52429
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 100, col 48 to line 100, col 61 of module SqlServer: 11026260
+  line 53, col 18 to line 53, col 27 of module SqlServer: 52429
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 100, col 64 to line 100, col 64 of module SqlServer: 11026260
+  line 53, col 30 to line 53, col 43 of module SqlServer: 52429
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 103, col 16 to line 103, col 119 of module SqlServer: 3464504
+  line 53, col 46 to line 53, col 62 of module SqlServer: 52429
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 104, col 16 to line 104, col 46 of module SqlServer: 3464504
+  line 53, col 65 to line 53, col 66 of module SqlServer: 52429
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 105, col 29 to line 105, col 32 of module SqlServer: 3464504
+  line 54, col 12 to line 54, col 25 of module SqlServer: 52429
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 105, col 35 to line 105, col 51 of module SqlServer: 3464504
+  line 54, col 28 to line 54, col 28 of module SqlServer: 52429
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 105, col 54 to line 105, col 67 of module SqlServer: 3464504
+  line 70, col 26 to line 70, col 75 of module SqlServer: 1520560
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 105, col 70 to line 105, col 70 of module SqlServer: 3464504
+  line 71, col 26 to line 71, col 101 of module SqlServer: 1520560
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 56, col 12 to line 56, col 15 of module SqlServer: 37040
+  line 72, col 26 to line 72, col 58 of module SqlServer: 1520560
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 56, col 18 to line 56, col 31 of module SqlServer: 37040
+  line 73, col 26 to line 73, col 59 of module SqlServer: 5359040
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 56, col 34 to line 56, col 50 of module SqlServer: 37040
+  line 74, col 39 to line 74, col 52 of module SqlServer: 5359040
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 56, col 53 to line 56, col 54 of module SqlServer: 37040
+  line 74, col 55 to line 74, col 55 of module SqlServer: 5359040
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 56, col 57 to line 56, col 70 of module SqlServer: 37040
+  line 75, col 28 to line 75, col 31 of module SqlServer: 6879600
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 56, col 73 to line 56, col 73 of module SqlServer: 37040
+  line 75, col 34 to line 75, col 43 of module SqlServer: 6879600
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 71, col 26 to line 71, col 75 of module SqlServer: 2845012
+  line 75, col 46 to line 75, col 59 of module SqlServer: 6879600
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 72, col 26 to line 72, col 101 of module SqlServer: 2845012
+  line 75, col 62 to line 75, col 78 of module SqlServer: 6879600
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 73, col 26 to line 73, col 58 of module SqlServer: 2845012
+  line 79, col 34 to line 79, col 57 of module SqlServer: 1429608
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 74, col 26 to line 74, col 59 of module SqlServer: 6409408
+  line 80, col 34 to line 80, col 74 of module SqlServer: 1429608
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 75, col 39 to line 75, col 52 of module SqlServer: 6409408
+  line 81, col 44 to line 81, col 57 of module SqlServer: 1429608
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 75, col 55 to line 75, col 55 of module SqlServer: 6409408
+  line 82, col 34 to line 82, col 137 of module SqlServer: 1429608
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 76, col 28 to line 76, col 31 of module SqlServer: 9254420
+  line 83, col 46 to line 83, col 49 of module SqlServer: 1429608
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 76, col 34 to line 76, col 47 of module SqlServer: 9254420
+  line 83, col 52 to line 83, col 61 of module SqlServer: 1429608
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 76, col 50 to line 76, col 66 of module SqlServer: 9254420
+  line 84, col 28 to line 84, col 58 of module SqlServer: 2859216
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 80, col 34 to line 80, col 57 of module SqlServer: 2197464
+  line 85, col 38 to line 85, col 54 of module SqlServer: 2859216
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 81, col 44 to line 81, col 57 of module SqlServer: 2197464
+  line 86, col 28 to line 86, col 118 of module SqlServer: 2387044
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 82, col 34 to line 82, col 137 of module SqlServer: 2197464
+  line 87, col 28 to line 87, col 59 of module SqlServer: 2387044
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 83, col 34 to line 83, col 45 of module SqlServer: 2197464
+  line 88, col 41 to line 88, col 44 of module SqlServer: 2387044
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 84, col 28 to line 84, col 58 of module SqlServer: 4394928
+  line 88, col 47 to line 88, col 56 of module SqlServer: 2387044
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 85, col 38 to line 85, col 54 of module SqlServer: 4394928
+  line 88, col 59 to line 88, col 72 of module SqlServer: 2387044
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 86, col 28 to line 86, col 118 of module SqlServer: 3675420
+  line 89, col 30 to line 89, col 43 of module SqlServer: 5246260
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 87, col 28 to line 87, col 59 of module SqlServer: 3675420
+  line 89, col 46 to line 89, col 46 of module SqlServer: 5246260
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 88, col 41 to line 88, col 44 of module SqlServer: 3675420
+  line 92, col 22 to line 92, col 45 of module SqlServer: 2387044
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 88, col 47 to line 88, col 60 of module SqlServer: 3675420
+  line 93, col 32 to line 93, col 45 of module SqlServer: 2387044
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 89, col 30 to line 89, col 43 of module SqlServer: 8070348
+  line 94, col 22 to line 94, col 125 of module SqlServer: 2387044
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 89, col 46 to line 89, col 46 of module SqlServer: 8070348
+  line 95, col 22 to line 95, col 33 of module SqlServer: 2387044
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 92, col 22 to line 92, col 45 of module SqlServer: 3675420
+  line 96, col 16 to line 96, col 46 of module SqlServer: 4774088
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 93, col 22 to line 93, col 52 of module SqlServer: 3675420
+  line 97, col 29 to line 97, col 38 of module SqlServer: 4774088
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 94, col 32 to line 94, col 45 of module SqlServer: 3675420
+  line 97, col 41 to line 97, col 57 of module SqlServer: 4774088
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 95, col 22 to line 95, col 125 of module SqlServer: 7350840
+  line 97, col 60 to line 97, col 73 of module SqlServer: 4774088
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 96, col 28 to line 96, col 59 of module SqlServer: 3675420
-@!@!@ENDMSG 2221 @!@!@
-@!@!@STARTMSG 2221:0 @!@!@
-  line 98, col 28 to line 98, col 58 of module SqlServer: 3675420
-@!@!@ENDMSG 2221 @!@!@
-@!@!@STARTMSG 2221:0 @!@!@
-  line 99, col 22 to line 99, col 33 of module SqlServer: 7350840
+  line 97, col 76 to line 97, col 76 of module SqlServer: 4774088
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2202:0 @!@!@
 End of statistics.
 @!@!@ENDMSG 2202 @!@!@
 @!@!@STARTMSG 2200:0 @!@!@
-Progress(43) at 2017-02-05 00:04:12: 31852573 states generated (38,371,970 s/min), 7169159 distinct states found (8,636,500 ds/min), 0 states left on queue.
+Progress(45) at 2017-02-05 22:01:29: 16952378 states generated (33,519,284 s/min), 4610584 distinct states found (9,116,330 ds/min), 0 states left on queue.
 @!@!@ENDMSG 2200 @!@!@
 @!@!@STARTMSG 2199:0 @!@!@
-31852573 states generated, 7169159 distinct states found, 0 states left on queue.
+16952378 states generated, 4610584 distinct states found, 0 states left on queue.
 @!@!@ENDMSG 2199 @!@!@
 @!@!@STARTMSG 2194:0 @!@!@
-The depth of the complete state graph search is 43.
+The depth of the complete state graph search is 45.
 @!@!@ENDMSG 2194 @!@!@
 @!@!@STARTMSG 2186:0 @!@!@
-Finished in 50s at (2017-02-05 00:04:12)
+Finished in 30s at (2017-02-05 22:01:29)
 @!@!@ENDMSG 2186 @!@!@

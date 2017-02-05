@@ -12,12 +12,11 @@ ASSUME /\ NMsgs \in Nat
 (*
 --algorithm ProcessWithRecoverability
 {   variables msgs = 1..NMsgs,
+              failedMsgs = {},
               attemptsPerMsg = [msg \in 1..NMsgs |-> 0],
               processingsPerMsg = [msg \in 1..NMsgs |-> 0];
 
-    define
-    {   Min(n,m) == IF n<m THEN n ELSE m
-    }                           
+    define { Min(n,m) == IF n<m THEN n ELSE m }                           
     
     macro RecordFailure(m) { attemptsPerMsg[m] := Min(attemptsPerMsg[m]+1, MaxFailedAttempts); }
     
@@ -28,37 +27,37 @@ ASSUME /\ NMsgs \in Nat
                      failedAttempts := attemptsPerMsg[m];
                
                 hdl: if (failedAttempts >= MaxFailedAttempts)
-                     { either { msgs := msgs \ {m}; }
+                     { either { msgs := msgs \ {m};
+                                failedMsgs := failedMsgs \cup {m}; 
+                              }
                        or     { RecordFailure(m); }
                      }
                      else
                      {    processingsPerMsg[m] := processingsPerMsg[m] + 1;
                    
                       ex: either { msgs := msgs \ {m}; }
-                          or     { RecordFailure(m);
-                                   either { fc: RecordFailure(m); }
-                                   or     {     skip; }  
-                                 }                     
+                          or     { RecordFailure(m); }                     
                      }
          } 
     }
-    
 }
 *)
 \* BEGIN TRANSLATION
-VARIABLES msgs, attemptsPerMsg, processingsPerMsg, pc
+VARIABLES msgs, failedMsgs, attemptsPerMsg, processingsPerMsg, pc
 
 (* define statement *)
 Min(n,m) == IF n<m THEN n ELSE m
 
 VARIABLES failedAttempts, m
 
-vars == << msgs, attemptsPerMsg, processingsPerMsg, pc, failedAttempts, m >>
+vars == << msgs, failedMsgs, attemptsPerMsg, processingsPerMsg, pc, 
+           failedAttempts, m >>
 
 ProcSet == (1..NProcessors)
 
 Init == (* Global variables *)
         /\ msgs = 1..NMsgs
+        /\ failedMsgs = {}
         /\ attemptsPerMsg = [msg \in 1..NMsgs |-> 0]
         /\ processingsPerMsg = [msg \in 1..NMsgs |-> 0]
         (* Process Processor *)
@@ -73,38 +72,31 @@ p(self) == /\ pc[self] = "p"
                       /\ pc' = [pc EXCEPT ![self] = "hdl"]
                  ELSE /\ pc' = [pc EXCEPT ![self] = "Done"]
                       /\ UNCHANGED << failedAttempts, m >>
-           /\ UNCHANGED << msgs, attemptsPerMsg, processingsPerMsg >>
+           /\ UNCHANGED << msgs, failedMsgs, attemptsPerMsg, processingsPerMsg >>
 
 hdl(self) == /\ pc[self] = "hdl"
              /\ IF failedAttempts[self] >= MaxFailedAttempts
                    THEN /\ \/ /\ msgs' = msgs \ {m[self]}
+                              /\ failedMsgs' = (failedMsgs \cup {m[self]})
                               /\ UNCHANGED attemptsPerMsg
                            \/ /\ attemptsPerMsg' = [attemptsPerMsg EXCEPT ![m[self]] = Min(attemptsPerMsg[m[self]]+1, MaxFailedAttempts)]
-                              /\ msgs' = msgs
+                              /\ UNCHANGED <<msgs, failedMsgs>>
                         /\ pc' = [pc EXCEPT ![self] = "p"]
                         /\ UNCHANGED processingsPerMsg
                    ELSE /\ processingsPerMsg' = [processingsPerMsg EXCEPT ![m[self]] = processingsPerMsg[m[self]] + 1]
                         /\ pc' = [pc EXCEPT ![self] = "ex"]
-                        /\ UNCHANGED << msgs, attemptsPerMsg >>
+                        /\ UNCHANGED << msgs, failedMsgs, attemptsPerMsg >>
              /\ UNCHANGED << failedAttempts, m >>
 
 ex(self) == /\ pc[self] = "ex"
             /\ \/ /\ msgs' = msgs \ {m[self]}
-                  /\ pc' = [pc EXCEPT ![self] = "p"]
                   /\ UNCHANGED attemptsPerMsg
                \/ /\ attemptsPerMsg' = [attemptsPerMsg EXCEPT ![m[self]] = Min(attemptsPerMsg[m[self]]+1, MaxFailedAttempts)]
-                  /\ \/ /\ pc' = [pc EXCEPT ![self] = "fc"]
-                     \/ /\ TRUE
-                        /\ pc' = [pc EXCEPT ![self] = "p"]
                   /\ msgs' = msgs
-            /\ UNCHANGED << processingsPerMsg, failedAttempts, m >>
-
-fc(self) == /\ pc[self] = "fc"
-            /\ attemptsPerMsg' = [attemptsPerMsg EXCEPT ![m[self]] = Min(attemptsPerMsg[m[self]]+1, MaxFailedAttempts)]
             /\ pc' = [pc EXCEPT ![self] = "p"]
-            /\ UNCHANGED << msgs, processingsPerMsg, failedAttempts, m >>
+            /\ UNCHANGED << failedMsgs, processingsPerMsg, failedAttempts, m >>
 
-Processor(self) == p(self) \/ hdl(self) \/ ex(self) \/ fc(self)
+Processor(self) == p(self) \/ hdl(self) \/ ex(self)
 
 Next == (\E self \in 1..NProcessors: Processor(self))
            \/ (* Disjunct to prevent deadlock on termination *)
@@ -117,13 +109,17 @@ Termination == <>(\A self \in ProcSet: pc[self] = "Done")
 
 \* END TRANSLATION
           
-TypeOK == \* /\ msgs \in SUBSET 1..NMsgs
+TypeOK == /\ msgs \in SUBSET (1..NMsgs)
           /\ attemptsPerMsg \in [1..NMsgs -> Nat]
           /\ processingsPerMsg \in [1..NMsgs -> Nat]
-          
-ProcessingAttemptsAreBounded == \A msg \in 1..NMsgs : processingsPerMsg[msg] <= MaxFailedAttempts + NProcessors - 1 
+                
+LowerBoundOnProcessingAttempts == \A msg \in 1..NMsgs : 
+                                    (msg \in failedMsgs) => (processingsPerMsg[msg] >= MaxFailedAttempts)                     
+
+UpperBoundOnProcessingAttempts == \A msg \in 1..NMsgs : 
+                                    processingsPerMsg[msg] <= MaxFailedAttempts + NProcessors - 1 
 
 =============================================================================
 \* Modification History
-\* Last modified Sun Feb 05 00:02:58 CET 2017 by Tomasz Masternak
+\* Last modified Sun Feb 05 22:00:45 CET 2017 by Tomasz Masternak
 \* Created Sat Feb 04 21:58:56 CET 2017 by Tomasz Masternak
